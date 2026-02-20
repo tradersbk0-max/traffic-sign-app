@@ -1,6 +1,8 @@
 import streamlit as st
 import numpy as np
 import cv2
+import os
+os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
 import tensorflow as tf
 from PIL import Image
 
@@ -23,4 +25,5 @@ if uploaded_file is not None:
     prediction = model.predict(img)
     class_id = np.argmax(prediction)
     
+
     st.write("### Predicted Class ID:", class_id)
